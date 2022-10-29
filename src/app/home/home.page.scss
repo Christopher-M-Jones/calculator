@@ -25,3 +25,24 @@
 #container a {
   text-decoration: none;
 }
+
+.calculator {
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+}
+
+.calScreen {
+  width: 100%;
+  font-size: 7rem;
+  height: 120px;
+  border: none;
+  background-color: rgb(67,50,110);
+  color: #fff;
+  text-align: right;
+  padding-right: 30px;
+  margin-top: 120px;
+}
