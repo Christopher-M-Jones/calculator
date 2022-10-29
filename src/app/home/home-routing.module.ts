@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'themes',
+    loadChildren: () => import('./themes/themes.module').then( m => m.ThemesPageModule)
   }
 ];
 
