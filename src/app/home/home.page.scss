@@ -1,5 +1,5 @@
-ion-menu::part(backdrop) {
-  //background-color: red;
+#main-content {
+  background-color: rgb(67,50,110);
 }
 
 ion-menu-button {
@@ -8,26 +8,11 @@ ion-menu-button {
 }
 
 ion-toolbar {
-  //padding-top: 40px;
   --background: rgb(100,83,144);
   height: 120px;
-  //margin-bottom:10px;
   border-bottom: 10px solid rgb(50,38,80);
 }
 
-
-ion-menu::part(container) {
-  border-radius: 0 20px 20px 0;
-
-  //box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
-}
-
-
-
-
-
-
-//Settings for iPhone 12 Pro
 .calculator {
   background-color: rgb(67,50,110);
   position: relative;
@@ -42,7 +27,7 @@ ion-menu::part(container) {
 .calScreen {
   width: 100%;
   font-size: 7rem;
-  height: 120px;
+  height: 90px;
   border: none;
   background-color: rgb(67,50,110);
   color: #fff;
@@ -65,7 +50,7 @@ ion-menu::part(container) {
 }
 
 .ovBut{
-  height: 80px;
+  height: 100%;
   border-radius: 50px;
   font-size: 2.5rem;
 }
@@ -84,11 +69,6 @@ ion-menu::part(container) {
 
 button:hover {
   background-color: #eaeaea44;
-}
-
-html {
-  font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 .zero {
@@ -141,7 +121,6 @@ html {
   border-color: rgb(251, 214, 82);
 }
 .equal {
-  height: 100%;
   grid-area: 4 / 4 / 6 / 5;
 }
 
@@ -150,4 +129,174 @@ html {
   height: 2px;
   background: white;
   margin: 5%;
+}
+
+//iPhone SE
+@media (min-height: 667px){
+
+  ion-menu-button {
+    margin-top: 0px;
+  }
+
+  ion-toolbar {
+    height: 50px;
+  }
+
+  .calculator {
+    margin-top: 50px;
+  }
+
+  .calScreen {
+    margin-top: 10px;
+  }
+}
+
+//Galaxy S7-22
+@media (min-height: 740px){
+
+  ion-menu-button {
+    margin-top: 40px;
+  }
+
+  ion-toolbar {
+    height: 100px;
+  }
+
+  .calculator {
+    margin-top: 100px;
+  }
+
+  .calScreen {
+    margin-top: 10px;
+  }
+}
+
+
+//iPhone X-13
+@media (min-height: 844px){
+
+  ion-menu-button {
+    margin-top: 60px;
+  }
+
+  ion-toolbar {
+    height: 120px;
+  }
+
+  .calculator {
+    margin-top: 120px;
+  }
+
+  .calScreen {
+    margin-top: 80px;
+  }
+}
+
+//iPhone XR
+@media (min-height: 896px){
+
+  ion-menu-button {
+    margin-top: 60px;
+    color: white;
+  }
+
+  ion-toolbar {
+    --background: rgb(100,83,144);
+    height: 120px;
+    border-bottom: 10px solid rgb(50,38,80);
+  }
+
+  .calculator {
+    margin-top: 150px;
+  }
+
+  .calScreen {
+    margin-top: 80px;
+  }
+}
+
+//Galaxy Ultra
+@media (min-height: 915px){
+
+  ion-menu-button {
+    margin-top: 80px;
+  }
+
+  ion-toolbar {
+    height: 150px;
+  }
+
+  .calculator {
+    margin-top: 150px;
+  }
+
+  .calScreen {
+    margin-top: 120px;
+  }
+}
+
+//iPad Mini
+@media (min-height: 1024px){
+
+  ion-menu-button {
+    margin-top: 80px;
+  }
+
+  ion-toolbar {
+    height: 150px;
+  }
+
+  .calculator {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 700px;
+  }
+
+  .calScreen {
+    margin-top: 60px;
+  }
+
+  .circleBut{
+    height: 100px;
+  }
+
+  .ovBut{
+    border-radius: 70px;
+  }
+}
+
+//iPad
+@media (min-height: 1180px){
+
+  ion-menu-button {
+    margin-top: 80px;
+  }
+
+  ion-toolbar {
+    height: 150px;
+  }
+
+  .calculator {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 800px;
+  }
+
+  .calScreen {
+    margin-top: 60px;
+  }
+
+  .circleBut{
+    height: 120px;
+  }
+
+  .ovBut{
+    border-radius: 80px;
+  }
 }
