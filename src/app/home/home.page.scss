@@ -1,3 +1,32 @@
+ion-menu::part(backdrop) {
+  //background-color: red;
+}
+
+ion-menu-button {
+  margin-top: 60px;
+  color: white;
+}
+
+ion-toolbar {
+  //padding-top: 40px;
+  --background: rgb(100,83,144);
+  height: 120px;
+  //margin-bottom:10px;
+  border-bottom: 10px solid rgb(50,38,80);
+}
+
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+
+  //box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
+}
+
+
+
+
+
+
 //Settings for iPhone 12 Pro
 .calculator {
   background-color: rgb(67,50,110);
@@ -7,6 +36,7 @@
   // transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
+  margin-top: 120px;
 }
 
 .calScreen {
@@ -18,7 +48,7 @@
   color: #fff;
   text-align: right;
   padding-right: 30px;
-  margin-top: 120px;
+  margin-top: 60px;
 }
 
 .calKeys {
@@ -113,4 +143,11 @@ html {
 .equal {
   height: 100%;
   grid-area: 4 / 4 / 6 / 5;
+}
+
+.line {
+  width: 90%;
+  height: 2px;
+  background: white;
+  margin: 5%;
 }
