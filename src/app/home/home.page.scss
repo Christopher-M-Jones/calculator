@@ -13,6 +13,33 @@ ion-toolbar {
   border-bottom: 10px solid rgb(50,38,80);
 }
 
+ion-label {
+  color: white;
+  text-decoration: none;
+}
+
+ion-title {
+  font-size: 2rem;
+}
+
+ion-list {
+  background-color: rgb(67,50,110);
+}
+
+ion-item {
+  text-align: center;
+  --ion-item-background:rgb(100,83,144);
+  --border-radius: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+ion-menu {
+  --ion-background-color: rgb(67,50,110);
+}
+
 .calculator {
   background-color: rgb(67,50,110);
   position: relative;
