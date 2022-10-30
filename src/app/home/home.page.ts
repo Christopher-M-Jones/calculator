@@ -47,11 +47,12 @@ export class HomePage {
     const screen = document.querySelector('#screen') as HTMLInputElement;
     screen.style.fontSize = '7rem';
     screen.maxLength = 6;
+    this.expression = '';
   }
 
   evaluate(){
 
-    this.expression += ' ' + this.tempNum;
+    //this.expression += ' ' + this.tempNum;
     this.nums.push(parseFloat(this.tempNum));
     this.tempNum = '';
 
@@ -83,7 +84,9 @@ export class HomePage {
     }
 
     this.display = (Math.round(this.total*100)/100).toString();
-    this.expression += this.total.toString();
+    this.expression += ' = ' + this.total.toString();
+    this.history.push(this.expression);
+    this.expression = `${this.total}`;
     this.firsteq = false;
   }
 
@@ -111,13 +114,13 @@ export class HomePage {
 
     if (op === '*'){
       this.display += '\u00d7';
-      this.expression += ' ' + '\u00d7';
+      this.expression += ' ' + '\u00d7' + ' ';
     }else if (op === '/'){
       this.display += '\u00f7';
-      this.expression += ' ' + '\u00f7';
+      this.expression += ' ' + '\u00f7' + ' ';
     }else{
       this.display += op;
-      this.expression += ' ' + op;
+      this.expression += ' ' + op + ' ';
     }
 
     //convert tempNum to number and push to nums array, clear tempNum
