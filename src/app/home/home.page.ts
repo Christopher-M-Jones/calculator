@@ -187,11 +187,17 @@ export class HomePage {
     const menu = document.querySelector('ion-menu') as HTMLElement;
     const clear = document.querySelector('.clear') as HTMLElement;
     const line = document.querySelector('.line') as HTMLElement;
+    const list = document.querySelector('ion-list') as HTMLElement;
+    const select = document.querySelector('ion-select') as HTMLElement;
+
+
     const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
     const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+    const items = document.querySelectorAll('ion-item') as NodeListOf<HTMLElement>;
 
+    if(this.selectedStyle === 'styleA'){
 
-    calScreen.style.backgroundColor = 'red';
+    calScreen.style.backgroundColor = 'rgb(0,0,0)';
     calScreen.style.color = 'red';
 
     calBody.style.backgroundColor = 'red';
@@ -206,6 +212,9 @@ export class HomePage {
 
     line.style.background = 'red';
 
+    list.style.backgroundColor = 'red';
+    //select.style.backgroundColor = 'red';
+
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i=0; i < nums.length; i++){
       nums[i].style.color = 'blue';
@@ -219,7 +228,20 @@ export class HomePage {
       ops[i].style.backgroundColor = 'red';
     }
 
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for (let i=0; i < items.length; i++){
+      items[i].style.setProperty('--ion-item-background','green');
+      items[i].style.background = 'red';
+    }
+
     clear.style.borderColor = 'red';
+
+    }
+
+
+
+
+
 
 
 
