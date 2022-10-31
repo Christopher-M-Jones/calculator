@@ -10,6 +10,7 @@ import { MenuController } from '@ionic/angular';
 export class HomePage {
 
   selectedStyle: string;
+  selectedFont: string;
 
   display = '0';
   expression = '';
@@ -177,6 +178,7 @@ export class HomePage {
     const list = document.querySelector('ion-list') as HTMLElement;
     const select = document.querySelector('ion-select') as HTMLElement;
     const mainm = document.querySelector('#main-content') as HTMLElement;
+    const menl = document.querySelector('#menulist') as HTMLElement;
 
 
 
@@ -203,6 +205,7 @@ export class HomePage {
       line.style.background = '#fefae0';
 
       list.style.backgroundColor = '#606c38';
+      menl.style.background = '#606c38';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < nums.length; i++){
@@ -243,6 +246,7 @@ export class HomePage {
       line.style.background = '#edddd4';
 
       list.style.backgroundColor = '#772e25';
+      menl.style.background = '#772e25';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < nums.length; i++){
@@ -283,6 +287,8 @@ export class HomePage {
       line.style.background = '#cad2c5';
 
       list.style.backgroundColor = '#2f4e46';
+      menl.style.background = '#2f4e46';
+
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < nums.length; i++){
@@ -323,6 +329,7 @@ export class HomePage {
       line.style.background = '#eaac8b';
 
       list.style.backgroundColor = '#6d597a';
+      menl.style.background = '#6d597a';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < nums.length; i++){
@@ -363,6 +370,8 @@ export class HomePage {
       line.style.background = '#fff';
 
       list.style.backgroundColor = 'rgb(100,83,144)';
+      menl.style.background = 'none';
+
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < nums.length; i++){
@@ -385,16 +394,110 @@ export class HomePage {
 
       clear.style.borderColor = 'rgb(251, 214, 82)';
     }
-
-
-
-
-
-
-
-
   }
 
+  onFontSelected(){
+
+    if(this.selectedFont === 'openSans'){
+
+      const calScreen = document.querySelector('.calScreen') as HTMLElement;
+      const history = document.querySelector('li') as HTMLElement;
+      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
+      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+
+      calScreen.style.fontFamily = 'OpenSans';
+      history.style.fontFamily = 'OpenSans';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.fontFamily = 'OpenSans';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.fontFamily = 'OpenSans';
+      }
+    }else if(this.selectedFont === 'roboto'){
+
+      const calScreen = document.querySelector('.calScreen') as HTMLElement;
+      const history = document.querySelector('li') as HTMLElement;
+
+      const nums = document.querySelectorAll('button') as NodeListOf<HTMLElement>;
+      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+      //const label = document.querySelectorAll('ion-label') as NodeListOf<HTMLElement>;
+
+
+      calScreen.style.fontFamily = 'Roboto';
+      history.style.fontFamily = 'Roboto';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.font = 'Roboto';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.fontFamily = 'Roboto';
+      }
+    }else if(this.selectedFont === 'poppins'){
+
+      const calScreen = document.querySelector('.calScreen') as HTMLElement;
+      const history = document.querySelector('li') as HTMLElement;
+      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
+      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+
+      calScreen.style.fontFamily = 'Poppins';
+      history.style.fontFamily = 'Poppins';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.fontFamily = 'Poppins';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.fontFamily = 'Poppins';
+      }
+    }else if(this.selectedFont === 'nunitoSans'){
+
+      const calScreen = document.querySelector('.calScreen') as HTMLElement;
+      const history = document.querySelector('li') as HTMLElement;
+      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
+      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+
+      calScreen.style.fontFamily = 'NunitoSans';
+      history.style.fontFamily = 'NunitoSans';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.fontFamily = 'NunitoSans';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.fontFamily = 'NunitoSans';
+      }
+    }else if(this.selectedFont === 'lato'){
+
+      const calScreen = document.querySelector('.calScreen') as HTMLElement;
+      const history = document.querySelector('li') as HTMLElement;
+      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
+      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+
+      calScreen.style.fontFamily = 'Lato';
+      history.style.fontFamily = 'Lato';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.fontFamily = 'Lato';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.fontFamily = 'Lato';
+      }
+    }
+  }
 }
 
 

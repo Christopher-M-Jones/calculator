@@ -9,7 +9,7 @@
         <ion-icon name="time-outline"></ion-icon>
         <ion-label>History</ion-label>
       </ion-item>
-      <ion-list>
+      <ion-list id="menulist">
       <ion-item>
         <ion-icon name="color-palette-outline"></ion-icon>
         <ion-label id="themeslabel">Themes</ion-label>
@@ -24,7 +24,7 @@
       <ion-item>
         <ion-icon name="text-outline"></ion-icon>
         <ion-label>Font</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="selectedFont" (ionChange)="onFontSelected()">
           <ion-select-option value="openSans">Open Sans</ion-select-option>
       <ion-select-option value="roboto">Roboto</ion-select-option>
       <ion-select-option value="poppins">Poppins</ion-select-option>
@@ -70,7 +70,7 @@
     <button class="circleBut num three" type="button" value="3" (click)="addNum('3')">3</button>
     <button class="circleBut num four" type="button" value="4" (click)="addNum('4')">4</button>
     <button class="circleBut num five" type="button" value="5" (click)="addNum('5')">5</button>
-    <button class="circleBut num six" type="button" value="6" (click)="addNum('6')">6</button>
+    <button class="circleBut num six" type="button" value="6"  (click)="addNum('6')">6</button>
     <button class="circleBut num seven" type="button" value="7" (click)="addNum('7')">7</button>
     <button class="circleBut num eight" type="button" value="8" (click)="addNum('8')">8</button>
     <button class="circleBut num nine" type="button" value="9" (click)="addNum('9')">9</button>
