@@ -9,6 +9,12 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
+  //styles = ['styleA','styleB','styleC','styleD'];
+  selectedStyle: string;
+  sidebarColor: string;
+  homebarColor: string;
+  menuColor: string;
+
   display = '0';
   expression = '';
   history = [];
@@ -162,6 +168,63 @@ export class HomePage {
       this.menu.close();
     }
   }
+
+  // changeTheme(selectObject) {
+  //   const value = selectObject.value;
+  //   console.log(value);
+  // }
+
+  // onStyleSelected(style: string){
+  //   console.log(style);
+  // }
+
+  onStyleSelected(){
+    console.log(this.selectedStyle);
+    const calBody = document.querySelector('.calculator') as HTMLElement;
+    const calScreen = document.querySelector('.calScreen') as HTMLElement;
+    const sidetoolbar = document.querySelector('#sideToolbar') as HTMLElement;
+    const hometoolbar = document.querySelector('#homeToolbar') as HTMLElement;
+    const menu = document.querySelector('ion-menu') as HTMLElement;
+    const clear = document.querySelector('.clear') as HTMLElement;
+    const line = document.querySelector('.line') as HTMLElement;
+    const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
+    const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+
+
+    calScreen.style.backgroundColor = 'red';
+    calScreen.style.color = 'red';
+
+    calBody.style.backgroundColor = 'red';
+
+    sidetoolbar.style.borderBottom = '10px solid red';
+    sidetoolbar.style.setProperty('--background', 'red');
+
+    hometoolbar.style.borderBottom = '10px solid red';
+    hometoolbar.style.setProperty('--background', 'red');
+
+    menu.style.setProperty('--ion-background-color', 'red');
+
+    line.style.background = 'red';
+
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for (let i=0; i < nums.length; i++){
+      nums[i].style.color = 'blue';
+      nums[i].style.border = '2px solid blue';
+
+    }
+
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for (let i=0; i < ops.length; i++){
+      ops[i].style.color = 'green';
+      ops[i].style.backgroundColor = 'red';
+    }
+
+    clear.style.borderColor = 'red';
+
+
+
+  }
+
 }
 
 

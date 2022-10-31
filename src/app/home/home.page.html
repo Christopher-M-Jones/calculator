@@ -1,6 +1,6 @@
 <ion-menu  contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
+  <ion-header >
+    <ion-toolbar id="sideToolbar">
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
@@ -9,12 +9,30 @@
         <ion-icon name="time-outline"></ion-icon>
         <ion-label>History</ion-label>
       </ion-item>
-      <a href="./home/themes">
+      <ion-list>
       <ion-item>
-        <ion-icon name="brush-outline"></ion-icon>
-        <ion-label>Themes</ion-label>
+        <ion-icon name="color-palette-outline"></ion-icon>
+        <ion-label id="themeslabel">Themes</ion-label>
+        <ion-select [(ngModel)]="selectedStyle" (ionChange)="onStyleSelected()">
+          <ion-select-option value="styleA">A</ion-select-option>
+          <ion-select-option value="styleB">B</ion-select-option>
+          <ion-select-option value="styleC">C</ion-select-option>
+          <ion-select-option value="styleD">D</ion-select-option>
+          <ion-select-option value="styleE">E</ion-select-option>
+        </ion-select>
       </ion-item>
-    </a>
+      <ion-item>
+        <ion-icon name="text-outline"></ion-icon>
+        <ion-label>Font</ion-label>
+        <ion-select>
+          <ion-select-option value="openSans">Open Sans</ion-select-option>
+      <ion-select-option value="roboto">Roboto</ion-select-option>
+      <ion-select-option value="poppins">Poppins</ion-select-option>
+      <ion-select-option value="nunitoSans">Nunito Sans</ion-select-option>
+      <ion-select-option value="lato">Lato</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
       <ion-item>
         <ion-icon name="beaker-outline"></ion-icon>
         <ion-label>Conversions</ion-label>
@@ -24,7 +42,7 @@
 </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar id="homeToolbar">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>

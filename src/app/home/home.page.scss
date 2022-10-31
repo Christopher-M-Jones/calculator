@@ -1,6 +1,6 @@
-#main-content {
-  background-color: rgb(67,50,110);
-}
+// #main-content {
+//   background-color: rgb(67,50,110);
+// }
 
 ion-menu-button {
   margin-top: 60px;
@@ -27,13 +27,18 @@ ion-list {
 }
 
 ion-item {
-  text-align: center;
+  //text-align: center;
   --ion-item-background:rgb(100,83,144);
   --border-radius: 30px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
   padding-top: 5px;
+  text-indent: 1em;
+}
+
+ion-select {
+  //margin-right:
 }
 
 ion-menu {
