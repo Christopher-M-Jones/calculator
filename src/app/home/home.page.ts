@@ -176,6 +176,8 @@ export class HomePage {
     const line = document.querySelector('.line') as HTMLElement;
     const list = document.querySelector('ion-list') as HTMLElement;
     const select = document.querySelector('ion-select') as HTMLElement;
+    const mainm = document.querySelector('#main-content') as HTMLElement;
+
 
 
     const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
@@ -196,6 +198,7 @@ export class HomePage {
       hometoolbar.style.setProperty('--background', '#bc6c25');
 
       menu.style.setProperty('--ion-background-color', '#606c38');
+      mainm.style.backgroundColor = '#606c38';
 
       line.style.background = '#fefae0';
 
@@ -235,6 +238,7 @@ export class HomePage {
       hometoolbar.style.setProperty('--background', '#bc6c25');
 
       menu.style.setProperty('--ion-background-color', '#772e25');
+      mainm.style.backgroundColor = '#772e25';
 
       line.style.background = '#edddd4';
 
@@ -274,6 +278,7 @@ export class HomePage {
       hometoolbar.style.setProperty('--background', '#354f52');
 
       menu.style.setProperty('--ion-background-color', '#2f3e46');
+      mainm.style.backgroundColor = '#2f3e46';
 
       line.style.background = '#cad2c5';
 
@@ -313,6 +318,7 @@ export class HomePage {
       hometoolbar.style.setProperty('--background', '#e56b6f');
 
       menu.style.setProperty('--ion-background-color', '#355070');
+      mainm.style.backgroundColor = '#355070';
 
       line.style.background = '#eaac8b';
 
@@ -352,6 +358,7 @@ export class HomePage {
       hometoolbar.style.setProperty('--background', 'rgb(100,83,144)');
 
       menu.style.setProperty('--ion-background-color', 'rgb(67,50,110)');
+      mainm.style.backgroundColor = 'rgb(67,50,110)';
 
       line.style.background = '#fff';
 
