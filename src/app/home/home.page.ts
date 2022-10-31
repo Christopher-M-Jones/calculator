@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularDelegate } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomePage {
   firstpress = true;
   displaySize = 7;
 
-  constructor() {}
+  constructor(private menu:  MenuController) {}
 
   add(x: number, y: number) {
     return x + y;
@@ -52,7 +53,6 @@ export class HomePage {
 
   evaluate(){
 
-    //this.expression += ' ' + this.tempNum;
     this.nums.push(parseFloat(this.tempNum));
     this.tempNum = '';
 
@@ -83,10 +83,14 @@ export class HomePage {
       }
     }
 
+    //Remove decimal place for integer totals, rounds decimal to hundredths place
     this.display = (Math.round(this.total*100)/100).toString();
-    this.expression += ' = ' + this.total.toString();
+    this.expression += ' = ' + (Math.round(this.total*100)/100).toString();
+
     this.history.push(this.expression);
-    this.expression = `${this.total}`;
+
+    //Reset history to just current total
+    this.expression = (Math.round(this.total*100)/100).toString();
     this.firsteq = false;
   }
 
@@ -135,6 +139,7 @@ export class HomePage {
   }
 
   adjustDisplay(screenChars: number){
+    //Adjust font size of screen text by matching number of characters to max input field length
     const screen = document.querySelector('#screen') as HTMLInputElement;
     if (this.display.length >= screen.maxLength){
       if(screenChars >= 3){
@@ -142,6 +147,19 @@ export class HomePage {
       screen.style.fontSize = this.displaySize.toString() + 'rem';
       screen.maxLength += 1;
       }
+    }
+  }
+
+  toggleHistory(){
+    //toggle history div in menu bar
+    //**bug** Only works after initially pressing button twice
+    const history = document.querySelector('.history') as HTMLElement;
+    if (history.style.display === 'none'){
+      history.style.display = 'block';
+      this.menu.close();
+    }else{
+      history.style.display = 'none';
+      this.menu.close();
     }
   }
 }
