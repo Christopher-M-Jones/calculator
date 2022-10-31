@@ -9,11 +9,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  //styles = ['styleA','styleB','styleC','styleD'];
   selectedStyle: string;
-  sidebarColor: string;
-  homebarColor: string;
-  menuColor: string;
 
   display = '0';
   expression = '';
@@ -169,15 +165,6 @@ export class HomePage {
     }
   }
 
-  // changeTheme(selectObject) {
-  //   const value = selectObject.value;
-  //   console.log(value);
-  // }
-
-  // onStyleSelected(style: string){
-  //   console.log(style);
-  // }
-
   onStyleSelected(){
     console.log(this.selectedStyle);
     const calBody = document.querySelector('.calculator') as HTMLElement;
@@ -197,45 +184,199 @@ export class HomePage {
 
     if(this.selectedStyle === 'styleA'){
 
-    calScreen.style.backgroundColor = 'rgb(0,0,0)';
-    calScreen.style.color = 'red';
+      calBody.style.backgroundColor = '#606c38';
 
-    calBody.style.backgroundColor = 'red';
+      calScreen.style.backgroundColor = '#606c38';
+      calScreen.style.color = '#fefae0';
 
-    sidetoolbar.style.borderBottom = '10px solid red';
-    sidetoolbar.style.setProperty('--background', 'red');
+      sidetoolbar.style.borderBottom = '10px solid #283618';
+      sidetoolbar.style.setProperty('--background', '#bc6c25');
 
-    hometoolbar.style.borderBottom = '10px solid red';
-    hometoolbar.style.setProperty('--background', 'red');
+      hometoolbar.style.borderBottom = '10px solid #283618';
+      hometoolbar.style.setProperty('--background', '#bc6c25');
 
-    menu.style.setProperty('--ion-background-color', 'red');
+      menu.style.setProperty('--ion-background-color', '#606c38');
 
-    line.style.background = 'red';
+      line.style.background = '#fefae0';
 
-    list.style.backgroundColor = 'red';
-    //select.style.backgroundColor = 'red';
+      list.style.backgroundColor = '#606c38';
 
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
-    for (let i=0; i < nums.length; i++){
-      nums[i].style.color = 'blue';
-      nums[i].style.border = '2px solid blue';
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.color = '#fefae0';
+        nums[i].style.border = '2px solid #fefae0';
 
-    }
+      }
 
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
-    for (let i=0; i < ops.length; i++){
-      ops[i].style.color = 'green';
-      ops[i].style.backgroundColor = 'red';
-    }
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.color = '#283618';
+        ops[i].style.backgroundColor = '#dda15e';
+      }
 
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
-    for (let i=0; i < items.length; i++){
-      items[i].style.setProperty('--ion-item-background','green');
-      items[i].style.background = 'red';
-    }
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < items.length; i++){
+        items[i].style.setProperty('--ion-item-background','#bc6c25');
+        items[i].style.background = '#606c38';
+      }
 
-    clear.style.borderColor = 'red';
+      clear.style.borderColor = '#dda15e';
+    }else if(this.selectedStyle === 'styleB'){
 
+      calBody.style.backgroundColor = '#772e25';
+
+      calScreen.style.backgroundColor = '#772e25';
+      calScreen.style.color = '#edddd4';
+
+      sidetoolbar.style.borderBottom = '10px solid #283d3b';
+      sidetoolbar.style.setProperty('--background', '#bc6c25');
+
+      hometoolbar.style.borderBottom = '10px solid #283d3b';
+      hometoolbar.style.setProperty('--background', '#bc6c25');
+
+      menu.style.setProperty('--ion-background-color', '#772e25');
+
+      line.style.background = '#edddd4';
+
+      list.style.backgroundColor = '#772e25';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.color = '#edddd4';
+        nums[i].style.border = '2px solid #fefae0';
+
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.color = '#197278';
+        ops[i].style.backgroundColor = '#c44536';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < items.length; i++){
+        items[i].style.setProperty('--ion-item-background','#354f52');
+        items[i].style.background = '#772e25';
+      }
+
+      clear.style.borderColor = '#197278';
+    }else if(this.selectedStyle === 'styleC'){
+
+      calBody.style.backgroundColor = '#2f3e46';
+
+      calScreen.style.backgroundColor = '#2f3e46';
+      calScreen.style.color = '#cad2c5';
+
+      sidetoolbar.style.borderBottom = '10px solid #52796f';
+      sidetoolbar.style.setProperty('--background', '#354f52');
+
+      hometoolbar.style.borderBottom = '10px solid #52796f';
+      hometoolbar.style.setProperty('--background', '#354f52');
+
+      menu.style.setProperty('--ion-background-color', '#2f3e46');
+
+      line.style.background = '#cad2c5';
+
+      list.style.backgroundColor = '#2f4e46';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.color = '#cad2c5';
+        nums[i].style.border = '2px solid #cad2c5';
+
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.color = '#52796f';
+        ops[i].style.backgroundColor = '#84a98c';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < items.length; i++){
+        items[i].style.setProperty('--ion-item-background','#354f52');
+        items[i].style.background = '#2f3e46';
+      }
+
+      clear.style.borderColor = '#52796f';
+    }else if(this.selectedStyle === 'styleD'){
+
+      calBody.style.backgroundColor = '#355070';
+
+      calScreen.style.backgroundColor = '#355070';
+      calScreen.style.color = '#eaac8b';
+
+      sidetoolbar.style.borderBottom = '10px solid #eaac8b';
+      sidetoolbar.style.setProperty('--background', '#e56b6f');
+
+      hometoolbar.style.borderBottom = '10px solid #eaac8b';
+      hometoolbar.style.setProperty('--background', '#e56b6f');
+
+      menu.style.setProperty('--ion-background-color', '#355070');
+
+      line.style.background = '#eaac8b';
+
+      list.style.backgroundColor = '#6d597a';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.color = '#eaac8b';
+        nums[i].style.border = '2px solid #eaac8b';
+
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.color = '#355070';
+        ops[i].style.backgroundColor = '#b56576';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < items.length; i++){
+        items[i].style.setProperty('--ion-item-background','#6d597a');
+        items[i].style.background = '#355070';
+      }
+
+      clear.style.borderColor = '#6d597a';
+    }else if(this.selectedStyle === 'styleE'){
+
+      calBody.style.backgroundColor = 'rgb(67,50,110)';
+
+      calScreen.style.backgroundColor = 'rgb(67,50,110)';
+      calScreen.style.color = '#fff';
+
+      sidetoolbar.style.borderBottom = '10px solid rgb(50,38,80)';
+      sidetoolbar.style.setProperty('--background', 'rgb(100,83,144)');
+
+      hometoolbar.style.borderBottom = '10px solid rgb(50,38,80)';
+      hometoolbar.style.setProperty('--background', 'rgb(100,83,144)');
+
+      menu.style.setProperty('--ion-background-color', 'rgb(67,50,110)');
+
+      line.style.background = '#fff';
+
+      list.style.backgroundColor = 'rgb(100,83,144)';
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < nums.length; i++){
+        nums[i].style.color = '#fff';
+        nums[i].style.border = '2px solid #fff';
+
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < ops.length; i++){
+        ops[i].style.color = 'rgb(67,50,110)';
+        ops[i].style.backgroundColor = 'rgb(251, 214, 82)';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < items.length; i++){
+        items[i].style.setProperty('--ion-item-background','rgb(100,83,144)');
+        items[i].style.background = 'rgb(67,50,110)';
+      }
+
+      clear.style.borderColor = 'rgb(251, 214, 82)';
     }
 
 
