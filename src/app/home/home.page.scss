@@ -14,7 +14,7 @@ ion-toolbar {
 }
 
 ion-label {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -27,7 +27,6 @@ ion-list {
 }
 
 ion-item {
-  //text-align: center;
   --ion-item-background:rgb(100,83,144);
   --border-radius: 30px;
   padding-left: 10px;
@@ -37,21 +36,13 @@ ion-item {
   text-indent: 1em;
 }
 
-ion-select {
-  //margin-right:
-}
-
 ion-menu {
   --ion-background-color: rgb(67,50,110);
 }
 
-a:link {
-  text-decoration: none;
-}
-
 .history {
   background-color: rgba(51, 51, 51, 0.9);
-  color: green;
+  color: #fff;
   position: absolute;
   width: 100%;
   height: 72%;
@@ -69,9 +60,6 @@ a:link {
 .calculator {
   background-color: rgb(67,50,110);
   position: relative;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   margin-top: 120px;
@@ -180,7 +168,7 @@ button:hover {
 .line {
   width: 90%;
   height: 2px;
-  background: white;
+  background: #fff;
   margin: 5%;
 }
 
