@@ -27,20 +27,20 @@ export class HomePage {
 
   constructor(private menu:  MenuController) {}
 
-  add(x: number, y: number) {
+  add(x: number, y: number): number {
     return x + y;
   }
-  sub(x: number, y: number) {
+  sub(x: number, y: number): number {
     return x - y;
   }
-  mult(x: number, y: number) {
+  mult(x: number, y: number): number {
     return x * y;
   }
-  divide(x: number, y: number) {
+  divide(x: number, y: number): number {
     return x / y;
   }
 
-  clear(){
+  clear(): void{
     const screen = document.querySelector('#screen') as HTMLInputElement;
 
     screen.style.fontSize = '7rem';
@@ -57,7 +57,7 @@ export class HomePage {
 
   }
 
-  evaluate(){
+  evaluate(): void{
     /*
     Evaluates an entered expression.
     Parses a number from the temp string entered after an operator.
@@ -111,7 +111,7 @@ export class HomePage {
       }
   }
 
-  numPress(num: string){
+  numPress(num: string): void{
     /*
     When number is pressed, it is appended to tempNum and display strings.
     Display font size is adjusted if max character length reached
@@ -130,7 +130,7 @@ export class HomePage {
     this.adjustDisplay(this.displaySize);
   }
 
-  decPress(num: string){
+  decPress(num: string): void{
     /*
     When decimal is pressed, it is appended to tempNum and display strings.
     Display font size is adjusted if max character length reached
@@ -151,7 +151,7 @@ export class HomePage {
     }
   }
 
-  opPress(op: string){
+  opPress(op: string): void{
     /*
     On first equation, tempNum string is parsed to float and pushed to nums array.
     For subsequent equations, total is assigned the parsed tempNum value directly.
@@ -187,7 +187,7 @@ export class HomePage {
     }
   }
 
-  adjustDisplay(screenChars: number){
+  adjustDisplay(screenChars: number): void{
     /*
     Adjust font size of screen text if characters exceed max input field length.
     Max input length and font size are decremented each time limit is hit until
@@ -204,7 +204,7 @@ export class HomePage {
     }
   }
 
-  toggleHistory(){
+  toggleHistory(): void{
     /*
     Toggle history div from the menu bar
     */
@@ -221,7 +221,7 @@ export class HomePage {
     }
   }
 
-  onStyleSelected(){
+  onStyleSelected(): void{
     /*
     HTML elements are selected through the DOM and their color styles are
     changed based on themes selector in menu bar
@@ -452,65 +452,90 @@ export class HomePage {
     }
   }
 
-  onFontSelected(){
+  onFontSelected(): void{
     /*
     HTML elements are selected through the DOM and their font families are
     changed based on font selector in menu bar.
-    *Bug* Currently only works on screen and history text. Button text does not change.
     */
 
     const calScreen = document.querySelector('.calScreen') as HTMLElement;
-    const history = document.querySelector('li') as HTMLElement;
+    const hisText = document.querySelector('.history') as HTMLElement;
     const numSpan = document.querySelectorAll('#butext') as NodeListOf<HTMLElement>;
+    const labels = document.querySelectorAll('ion-label') as NodeListOf<HTMLElement>;
 
     if(this.selectedFont === 'openSans'){
 
       calScreen.style.fontFamily = 'OpenSans';
-      history.style.fontFamily = 'OpenSans';
+      hisText.style.fontFamily = 'OpenSans';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < numSpan.length; i++){
         numSpan[i].style.fontFamily = 'OpenSans';
       }
 
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < labels.length; i++){
+        labels[i].style.fontFamily = 'OpenSans';
+      }
+
     }else if(this.selectedFont === 'roboto'){
 
       calScreen.style.fontFamily = 'Roboto';
-      history.style.fontFamily = 'Roboto';
+      hisText.style.fontFamily = 'Roboto';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < numSpan.length; i++){
         numSpan[i].style.fontFamily = 'Roboto';
       }
 
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < labels.length; i++){
+        labels[i].style.fontFamily = 'Roboto';
+      }
+
     }else if(this.selectedFont === 'poppins'){
 
       calScreen.style.fontFamily = 'Poppins';
-      history.style.fontFamily = 'Poppins';
+      hisText.style.fontFamily = 'Poppins';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < numSpan.length; i++){
         numSpan[i].style.fontFamily = 'Poppins';
       }
 
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < labels.length; i++){
+        labels[i].style.fontFamily = 'Poppins';
+      }
+
     }else if(this.selectedFont === 'nunitoSans'){
 
       calScreen.style.fontFamily = 'NunitoSans';
-      history.style.fontFamily = 'NunitoSans';
+      hisText.style.fontFamily = 'NunitoSans';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < numSpan.length; i++){
         numSpan[i].style.fontFamily = 'NunitoSans';
       }
 
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < labels.length; i++){
+        labels[i].style.fontFamily = 'NunitoSans';
+      }
+
     }else if(this.selectedFont === 'lato'){
 
       calScreen.style.fontFamily = 'Lato';
-      history.style.fontFamily = 'Lato';
+      hisText.style.fontFamily = 'Lato';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i=0; i < numSpan.length; i++){
         numSpan[i].style.fontFamily = 'Lato';
+      }
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let i=0; i < labels.length; i++){
+        labels[i].style.fontFamily = 'Lato';
       }
     }
   }
