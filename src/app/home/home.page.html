@@ -61,23 +61,23 @@
   <input type="text" class="calScreen"  value={{display}} id="screen" maxlength="6" readonly>
   <div class="line"></div>
   <div class="calKeys">
-    <button type="button" class="circleBut op plus" value="+" (click)="addOp('+')">+</button>
-    <button type="button" class="circleBut op minus" value="-" (click)="addOp('-')">-</button>
-    <button type="button" class="circleBut op mult" value="*" (click)="addOp('*')">&times;</button>
-    <button type="button" class="circleBut op divide" value="/" (click)="addOp('/')">&divide;</button>
-    <button class="circleBut num one" type="button" value="1" (click)="addNum('1')">1</button>
-    <button class="circleBut num two" type="button" value="2" (click)="addNum('2')">2</button>
-    <button class="circleBut num three" type="button" value="3" (click)="addNum('3')">3</button>
-    <button class="circleBut num four" type="button" value="4" (click)="addNum('4')">4</button>
-    <button class="circleBut num five" type="button" value="5" (click)="addNum('5')">5</button>
-    <button class="circleBut num six" type="button" value="6"  (click)="addNum('6')">6</button>
-    <button class="circleBut num seven" type="button" value="7" (click)="addNum('7')">7</button>
-    <button class="circleBut num eight" type="button" value="8" (click)="addNum('8')">8</button>
-    <button class="circleBut num nine" type="button" value="9" (click)="addNum('9')">9</button>
-    <button class="circleBut num dec" type="button" value="." (click)="addNum('.')">.</button>
-    <button class="circleBut num clear" type="button" value="clear" (click)="clear()">C</button>
-    <button class="ovBut num zero" type="button" value="0" (click)="addNum('0')">0</button>
-    <button class="ovBut op equal" type="button" value="=" (click)="evaluate()">=</button>
+    <button type="button" class="circleBut op plus" value="+" (click)="addOp('+')"><span id="butext">+</span></button>
+    <button type="button" class="circleBut op minus" value="-" (click)="addOp('-')"><span id="butext">-</span></button>
+    <button type="button" class="circleBut op mult" value="*" (click)="addOp('*')"><span id="butext">&times;</span></button>
+    <button type="button" class="circleBut op divide" value="/" (click)="addOp('/')"><span id="butext">&divide;</span></button>
+    <button class="circleBut num one" type="button" value="1" (click)="addNum('1')"><span id="butext">1</span></button>
+    <button class="circleBut num two" type="button" value="2" (click)="addNum('2')"><span id="butext">2</span></button>
+    <button class="circleBut num three" type="button" value="3" (click)="addNum('3')"><span id="butext">3</span></button>
+    <button class="circleBut num four" type="button" value="4" (click)="addNum('4')"><span id="butext">4</span></button>
+    <button class="circleBut num five" type="button" value="5" (click)="addNum('5')"><span id="butext">5</span></button>
+    <button class="circleBut num six" type="button" value="6"  (click)="addNum('6')"><span id="butext">6</span></button>
+    <button class="circleBut num seven" type="button" value="7" (click)="addNum('7')"><span id="butext">7</span></button>
+    <button class="circleBut num eight" type="button" value="8" (click)="addNum('8')"><span id="butext">8</span></button>
+    <button class="circleBut num nine" type="button" value="9" (click)="addNum('9')"><span id="butext">9</span></button>
+    <button class="circleBut num dec" type="button" value="." (click)="addNum('.')"><span id="butext">.</span></button>
+    <button class="circleBut num clear" type="button" value="clear" (click)="clear()"><span id="butext">C</span></button>
+    <button class="ovBut num zero" type="button" value="0" (click)="addNum('0')"><span id="butext">0</span></button>
+    <button class="ovBut op equal" type="button" value="=" (click)="evaluate()"><span id="butext">=</span></button>
   </div>
 </div>
 

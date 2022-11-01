@@ -9,8 +9,11 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
+
+  showHistory = false;
   selectedStyle: string;
   selectedFont: string;
+
 
   display = '0';
   expression = '';
@@ -155,13 +158,14 @@ export class HomePage {
 
   toggleHistory(){
     //toggle history div in menu bar
-    //**bug** Only works after initially pressing button twice
     const history = document.querySelector('.history') as HTMLElement;
-    if (history.style.display === 'none'){
+    if (this.showHistory === false){
       history.style.display = 'block';
+      this.showHistory = true;
       this.menu.close();
     }else{
       history.style.display = 'none';
+      this.showHistory = false;
       this.menu.close();
     }
   }
@@ -176,11 +180,8 @@ export class HomePage {
     const clear = document.querySelector('.clear') as HTMLElement;
     const line = document.querySelector('.line') as HTMLElement;
     const list = document.querySelector('ion-list') as HTMLElement;
-    const select = document.querySelector('ion-select') as HTMLElement;
     const mainm = document.querySelector('#main-content') as HTMLElement;
     const menl = document.querySelector('#menulist') as HTMLElement;
-
-
 
     const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
     const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
@@ -398,103 +399,58 @@ export class HomePage {
 
   onFontSelected(){
 
-    if(this.selectedFont === 'openSans'){
+    const calScreen = document.querySelector('.calScreen') as HTMLElement;
+    const history = document.querySelector('li') as HTMLElement;
+    const numSpan = document.querySelectorAll('#butext') as NodeListOf<HTMLElement>;
 
-      const calScreen = document.querySelector('.calScreen') as HTMLElement;
-      const history = document.querySelector('li') as HTMLElement;
-      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
-      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
+    if(this.selectedFont === 'openSans'){
 
       calScreen.style.fontFamily = 'OpenSans';
       history.style.fontFamily = 'OpenSans';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < nums.length; i++){
-        nums[i].style.fontFamily = 'OpenSans';
+      for (let i=0; i < numSpan.length; i++){
+        numSpan[i].style.fontFamily = 'OpenSans';
       }
 
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < ops.length; i++){
-        ops[i].style.fontFamily = 'OpenSans';
-      }
     }else if(this.selectedFont === 'roboto'){
-
-      const calScreen = document.querySelector('.calScreen') as HTMLElement;
-      const history = document.querySelector('li') as HTMLElement;
-
-      const nums = document.querySelectorAll('button') as NodeListOf<HTMLElement>;
-      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
-      //const label = document.querySelectorAll('ion-label') as NodeListOf<HTMLElement>;
-
 
       calScreen.style.fontFamily = 'Roboto';
       history.style.fontFamily = 'Roboto';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < nums.length; i++){
-        nums[i].style.font = 'Roboto';
+      for (let i=0; i < numSpan.length; i++){
+        numSpan[i].style.fontFamily = 'Roboto';
       }
 
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < ops.length; i++){
-        ops[i].style.fontFamily = 'Roboto';
-      }
     }else if(this.selectedFont === 'poppins'){
-
-      const calScreen = document.querySelector('.calScreen') as HTMLElement;
-      const history = document.querySelector('li') as HTMLElement;
-      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
-      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
 
       calScreen.style.fontFamily = 'Poppins';
       history.style.fontFamily = 'Poppins';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < nums.length; i++){
-        nums[i].style.fontFamily = 'Poppins';
+      for (let i=0; i < numSpan.length; i++){
+        numSpan[i].style.fontFamily = 'Poppins';
       }
 
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < ops.length; i++){
-        ops[i].style.fontFamily = 'Poppins';
-      }
     }else if(this.selectedFont === 'nunitoSans'){
-
-      const calScreen = document.querySelector('.calScreen') as HTMLElement;
-      const history = document.querySelector('li') as HTMLElement;
-      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
-      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
 
       calScreen.style.fontFamily = 'NunitoSans';
       history.style.fontFamily = 'NunitoSans';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < nums.length; i++){
-        nums[i].style.fontFamily = 'NunitoSans';
+      for (let i=0; i < numSpan.length; i++){
+        numSpan[i].style.fontFamily = 'NunitoSans';
       }
 
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < ops.length; i++){
-        ops[i].style.fontFamily = 'NunitoSans';
-      }
     }else if(this.selectedFont === 'lato'){
-
-      const calScreen = document.querySelector('.calScreen') as HTMLElement;
-      const history = document.querySelector('li') as HTMLElement;
-      const nums = document.querySelectorAll('.num') as NodeListOf<HTMLElement>;
-      const ops = document.querySelectorAll('.op') as NodeListOf<HTMLElement>;
 
       calScreen.style.fontFamily = 'Lato';
       history.style.fontFamily = 'Lato';
 
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < nums.length; i++){
-        nums[i].style.fontFamily = 'Lato';
-      }
-
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i=0; i < ops.length; i++){
-        ops[i].style.fontFamily = 'Lato';
+      for (let i=0; i < numSpan.length; i++){
+        numSpan[i].style.fontFamily = 'Lato';
       }
     }
   }
