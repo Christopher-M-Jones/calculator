@@ -59,45 +59,48 @@ export class HomePage {
 
   evaluate(){
 
-    this.nums.push(parseFloat(this.tempNum));
-    this.tempNum = '';
+    if(this.tempNum !== '' || this.operators.length === 0 ){
 
-    this.display = '';
+      this.nums.push(parseFloat(this.tempNum));
+      this.tempNum = '';
 
-    if (this.firsteq === true){
-    this.total = this.nums.shift();
-    }
+      this.display = '';
 
-    while (this.operators.length > 0){
-      if (this.operators[0] === '+'){
-        this.operators.shift();
-        this.secondNum = this.nums.shift();
-        this.total = this.add(this.total, this.secondNum);
-        //this.total += this.secondNum;
-      }else if(this.operators[0] === '-'){
-        this.operators.shift();
-        this.secondNum = this.nums.shift();
-        this.total = this.sub(this.total, this.secondNum);
-      }else if(this.operators[0] === '*'){
-        this.operators.shift();
-        this.secondNum = this.nums.shift();
-        this.total = this.mult(this.total, this.secondNum);
-      }else if(this.operators[0] === '/'){
-        this.operators.shift();
-        this.secondNum = this.nums.shift();
-        this.total = this.divide(this.total, this.secondNum);
+      if (this.firsteq === true){
+      this.total = this.nums.shift();
       }
-    }
 
-    //Remove decimal place for integer totals, rounds decimal to hundredths place
-    this.display = (Math.round(this.total*100)/100).toString();
-    this.expression += ' = ' + (Math.round(this.total*100)/100).toString();
+      while (this.operators.length > 0){
+        if (this.operators[0] === '+'){
+          this.operators.shift();
+          this.secondNum = this.nums.shift();
+          this.total = this.add(this.total, this.secondNum);
+        }else if(this.operators[0] === '-'){
+          this.operators.shift();
+          this.secondNum = this.nums.shift();
+          this.total = this.sub(this.total, this.secondNum);
+        }else if(this.operators[0] === '*'){
+          this.operators.shift();
+          this.secondNum = this.nums.shift();
+          this.total = this.mult(this.total, this.secondNum);
+        }else if(this.operators[0] === '/'){
+          this.operators.shift();
+          this.secondNum = this.nums.shift();
+          this.total = this.divide(this.total, this.secondNum);
+        }
+      }
 
-    this.history.push(this.expression);
+      //Remove decimal place for integer totals, rounds decimal to hundredths place
+      this.display = (Math.round(this.total*100)/100).toString();
+      this.expression += ' = ' + (Math.round(this.total*100)/100).toString();
 
-    //Reset history to just current total
-    this.expression = (Math.round(this.total*100)/100).toString();
-    this.firsteq = false;
+      this.history.push(this.expression);
+
+      //Reset history to just current total
+      this.expression = (Math.round(this.total*100)/100).toString();
+      this.firsteq = false;
+      this.tempNum = this.total.toString();
+      }
   }
 
   addNum(num: string){
@@ -118,30 +121,37 @@ export class HomePage {
   addOp(op: string){
     //display mult and divide symbols with unicode
 
-    if(this.firstpress){
-      this.firstpress = false;
+    if(this.tempNum !== ''){
+
+      if(this.firstpress){
+        this.firstpress = false;
+      }
+
+      if (op === '*'){
+        this.display += '\u00d7';
+        this.expression += ' ' + '\u00d7' + ' ';
+      }else if (op === '/'){
+        this.display += '\u00f7';
+        this.expression += ' ' + '\u00f7' + ' ';
+      }else{
+        this.display += op;
+        this.expression += ' ' + op + ' ';
+      }
+
+      //convert tempNum to number and push to nums array, clear tempNum
+      //push operator to ops array
+
+      if (this.firsteq === true){
+        this.nums.push(parseFloat(this.tempNum));
+        this.tempNum = '';
+      }else{
+        this.total = parseFloat(this.tempNum);
+        this.tempNum = '';
+      }
+
+      //make total equal tempnum if not first equation and dont push to nums
+      this.operators.push(op);
     }
-
-    if (op === '*'){
-      this.display += '\u00d7';
-      this.expression += ' ' + '\u00d7' + ' ';
-    }else if (op === '/'){
-      this.display += '\u00f7';
-      this.expression += ' ' + '\u00f7' + ' ';
-    }else{
-      this.display += op;
-      this.expression += ' ' + op + ' ';
-    }
-
-    //convert tempNum to number and push to nums array, clear tempNum
-    //push operator to ops array
-
-    if (this.tempNum !== ''){
-    this.nums.push(parseFloat(this.tempNum));
-    this.tempNum = '';
-    }
-
-    this.operators.push(op);
   }
 
   adjustDisplay(screenChars: number){
