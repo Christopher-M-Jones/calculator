@@ -59,7 +59,9 @@ export class HomePage {
 
   evaluate(){
 
-    if(this.tempNum !== '' || this.operators.length === 0 ){
+    if(this.tempNum !== '' && this.operators.length === 0){
+      //do nothing
+    }else if(this.tempNum !== '' || this.operators.length === 0 ){
 
       this.nums.push(parseFloat(this.tempNum));
       this.tempNum = '';
