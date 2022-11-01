@@ -9,23 +9,21 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-
-  showHistory = false;
   selectedStyle: string;
   selectedFont: string;
 
-
-  display = '0';
-  expression = '';
+  showHistory = false;
   history = [];
-  tempNum = '0';
   secondNum = 0;
+  total = 0;
+  display = '0';
+  tempNum = '0';
+  expression = '';
   nums = [];
   operators = [];
-  total = 0;
+  displaySize = 7;
   firsteq = true;
   firstpress = true;
-  displaySize = 7;
 
   constructor(private menu:  MenuController) {}
 
@@ -43,21 +41,29 @@ export class HomePage {
   }
 
   clear(){
-    this.display = '0';
-    this.tempNum = '0';
+    const screen = document.querySelector('#screen') as HTMLInputElement;
+
+    screen.style.fontSize = '7rem';
+    screen.maxLength = 6;
     this.secondNum = 0;
     this.total = 0;
+    this.display = '0';
+    this.tempNum = '0';
+    this.expression = '';
     this.nums = [];
     this.operators = [];
     this.firsteq = true;
     this.firstpress = true;
-    const screen = document.querySelector('#screen') as HTMLInputElement;
-    screen.style.fontSize = '7rem';
-    screen.maxLength = 6;
-    this.expression = '';
+
   }
 
   evaluate(){
+    /*
+    Evaluates an entered expression.
+    Parses a number from the temp string entered after an operator.
+    Operators are iterated over in a queue and total is operated on by
+    first number in nums queue.
+    */
 
     if(this.tempNum !== '' && this.operators.length === 0){
       //do nothing
@@ -65,7 +71,6 @@ export class HomePage {
 
       this.nums.push(parseFloat(this.tempNum));
       this.tempNum = '';
-
       this.display = '';
 
       if (this.firsteq === true){
@@ -92,21 +97,25 @@ export class HomePage {
         }
       }
 
-      //Remove decimal place for integer totals, rounds decimal to hundredths place
-      this.display = (Math.round(this.total*100)/100).toString();
-      this.expression += ' = ' + (Math.round(this.total*100)/100).toString();
+      //Round decimal to hundredths place for history and display
+      const totalStr =  (Math.round(this.total*100)/100).toString();
 
+      this.display = totalStr;
+      this.expression += ' = ' + totalStr;
       this.history.push(this.expression);
 
-      //Reset history to just current total
-      this.expression = (Math.round(this.total*100)/100).toString();
-      this.firsteq = false;
+      //Remove equal sign from expression and assign tempNum unrounded total
+      this.expression = totalStr;
       this.tempNum = this.total.toString();
+      this.firsteq = false;
       }
   }
 
-  addNum(num: string){
-    //add number button press as char to tempNum and update display
+  numPress(num: string){
+    /*
+    When number is pressed, it is appended to tempNum and display strings.
+    Display font size is adjusted if max character length reached
+    */
 
     if(this.firstpress){
       this.display = '';
@@ -120,8 +129,34 @@ export class HomePage {
 
     this.adjustDisplay(this.displaySize);
   }
-  addOp(op: string){
-    //display mult and divide symbols with unicode
+
+  decPress(num: string){
+    /*
+    When decimal is pressed, it is appended to tempNum and display strings.
+    Display font size is adjusted if max character length reached
+    */
+
+    if(!this.tempNum.includes('.')){
+      if(this.firstpress){
+        this.display = '';
+        this.tempNum = '';
+        this.firstpress = false;
+      }
+
+      this.tempNum += num;
+      this.expression += num;
+      this.display += num;
+
+      this.adjustDisplay(this.displaySize);
+    }
+  }
+
+  opPress(op: string){
+    /*
+    On first equation, tempNum string is parsed to float and pushed to nums array.
+    For subsequent equations, total is assigned the parsed tempNum value directly.
+    Operator pressed is pushed to operators queue.
+    */
 
     if(this.tempNum !== ''){
 
@@ -140,9 +175,6 @@ export class HomePage {
         this.expression += ' ' + op + ' ';
       }
 
-      //convert tempNum to number and push to nums array, clear tempNum
-      //push operator to ops array
-
       if (this.firsteq === true){
         this.nums.push(parseFloat(this.tempNum));
         this.tempNum = '';
@@ -151,13 +183,17 @@ export class HomePage {
         this.tempNum = '';
       }
 
-      //make total equal tempnum if not first equation and dont push to nums
       this.operators.push(op);
     }
   }
 
   adjustDisplay(screenChars: number){
-    //Adjust font size of screen text by matching number of characters to max input field length
+    /*
+    Adjust font size of screen text if characters exceed max input field length.
+    Max input length and font size are decremented each time limit is hit until
+    font size is 3rems
+    */
+
     const screen = document.querySelector('#screen') as HTMLInputElement;
     if (this.display.length >= screen.maxLength){
       if(screenChars >= 3){
@@ -169,7 +205,10 @@ export class HomePage {
   }
 
   toggleHistory(){
-    //toggle history div in menu bar
+    /*
+    Toggle history div from the menu bar
+    */
+
     const history = document.querySelector('.history') as HTMLElement;
     if (this.showHistory === false){
       history.style.display = 'block';
@@ -183,7 +222,11 @@ export class HomePage {
   }
 
   onStyleSelected(){
-    console.log(this.selectedStyle);
+    /*
+    HTML elements are selected through the DOM and their color styles are
+    changed based on themes selector in menu bar
+    */
+
     const calBody = document.querySelector('.calculator') as HTMLElement;
     const calScreen = document.querySelector('.calScreen') as HTMLElement;
     const sidetoolbar = document.querySelector('#sideToolbar') as HTMLElement;
@@ -410,6 +453,11 @@ export class HomePage {
   }
 
   onFontSelected(){
+    /*
+    HTML elements are selected through the DOM and their font families are
+    changed based on font selector in menu bar.
+    *Bug* Currently only works on screen and history text. Button text does not change.
+    */
 
     const calScreen = document.querySelector('.calScreen') as HTMLElement;
     const history = document.querySelector('li') as HTMLElement;
