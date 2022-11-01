@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.cj373.calculator',
   appName: 'calculator',
   webDir: 'www',
   bundledWebRuntime: false
